@@ -1,0 +1,30 @@
+[package]
+name = "d2d-sandbox"
+version = "0.1.0"
+authors = ["Christian de la Hoz <apigolas@gmail.com>"]
+
+[dependencies]
+direct2d = "0.1"
+lazy_static = "1.0"
+
+[dependencies.winapi]
+version = "0.3"
+features = [
+"combaseapi",
+"commctrl",
+"errhandlingapi",
+"ioapiset",
+"knownfolders",
+"libloaderapi",
+"minwindef",
+"ntdef",
+"objbase",
+"shellapi",
+"shlobj",
+"std",
+"winbase",
+"winerror",
+"wingdi",
+"winioctl",
+"winuser"
+]
