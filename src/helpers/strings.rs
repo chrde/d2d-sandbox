@@ -20,7 +20,7 @@ pub fn get_string(str: &str) -> LPCWSTR {
     HASHMAP.lock().unwrap().get(str).unwrap().as_ptr() as LPCWSTR
 }
 
-pub fn set_string(str: &'static str, value: String) {
+pub fn _set_string(str: &'static str, value: String) {
     HASHMAP.lock().unwrap().insert(str, value.to_wide_null());
 }
 

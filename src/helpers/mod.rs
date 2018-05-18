@@ -6,6 +6,7 @@ use winapi::um::winuser::MSG;
 use helpers::msg::Msg;
 
 use winapi::um::winuser::WM_QUIT;
+use winapi::shared::minwindef::BOOL;
 
 pub mod strings;
 pub mod wnd;
@@ -30,3 +31,17 @@ pub fn last_error<T>() -> io::Result<T> {
     Err(io::Error::last_os_error())
 }
 
+
+pub fn verify<T>(arg: *mut T) {
+    match arg {
+        v if v.is_null() => last_error(),
+        _ => Ok(())
+    }.unwrap();
+}
+
+pub fn verify_bool(arg: BOOL) {
+    match arg {
+        1 => Ok(()),
+        _ => last_error(),
+    }.unwrap();
+}

@@ -5,6 +5,7 @@ extern crate lazy_static;
 
 mod helpers;
 mod gui;
+mod examples;
 
 fn main() {
     helpers::start_loop().unwrap();
