@@ -15,6 +15,8 @@ use winapi::shared::minwindef::LPARAM;
 use winapi::shared::minwindef::LRESULT;
 use winapi::um::winuser::WS_VISIBLE;
 use winapi::um::winuser::WS_OVERLAPPEDWINDOW;
+use winapi::um::winuser::InvalidateRect;
+use helpers::verify_bool;
 
 pub type WndProcRef = unsafe extern "system" fn(wnd: HWND, message: UINT, w_param: WPARAM, l_param: LPARAM) -> LRESULT;
 
@@ -57,3 +59,11 @@ fn create_class(wnd_proc: Option<WndProcRef>) {
         RegisterClassExW(&class);
     }
 }
+
+pub fn invalidate(wnd: HWND) {
+    unsafe {
+        assert!(!wnd.is_null());
+        verify_bool(InvalidateRect(wnd, ptr::null_mut(), false as i32));
+    }
+}
+

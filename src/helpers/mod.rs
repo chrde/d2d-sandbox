@@ -11,6 +11,7 @@ use winapi::shared::minwindef::BOOL;
 pub mod strings;
 pub mod wnd;
 pub mod msg;
+pub mod event;
 
 pub fn start_loop() -> io::Result<i32> {
     let _wnd = create_wnd(Some(gui::wnd_proc));

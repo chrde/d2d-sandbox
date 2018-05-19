@@ -23,6 +23,7 @@ features = [
 "shlobj",
 "std",
 "winbase",
+"windowsx",
 "winerror",
 "wingdi",
 "winioctl",
