@@ -10,11 +10,10 @@ use direct2d::enums::*;
 use gui::State;
 use direct2d::stroke_style::StrokeStyle;
 use direct2d::Factory;
-
-const COLOR_BLUE: u32 = 0x2E_75_E8;
-const COLOR_BLACK: u32 = 0x00_00_00;
-const COLOR_WHITE: u32 = 0xFF_FF_FF;
-const COLOR_YELLOW: u32 = 0xE5_D3_32;
+use examples::COLOR_BLUE;
+use examples::COLOR_BLACK;
+use examples::COLOR_WHITE;
+use examples::COLOR_YELLOW;
 
 #[derive(Default)]
 pub struct Brushes {

@@ -1,3 +1,5 @@
+#![allow(unused_imports)]
+#![allow(dead_code)]
 extern crate direct2d;
 extern crate winapi;
 #[macro_use]

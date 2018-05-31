@@ -19,7 +19,6 @@ use winapi::um::d2d1::D2D1_WINDOW_STATE_OCCLUDED;
 use direct2d::Error;
 use winapi::shared::winerror::D2DERR_RECREATE_TARGET;
 use examples::Example;
-use examples::brushes::Brushes;
 use helpers::event::Event;
 use helpers::wnd::invalidate;
 use std::ptr;
@@ -131,12 +130,12 @@ impl <T: Example>Gui<T> {
 
 pub unsafe extern "system" fn wnd_proc(wnd: HWND, message: UINT, w_param: WPARAM, l_param: LPARAM) -> LRESULT {
     if message == WM_CREATE {
-        let gui = Box::new(Gui::<Brushes>::new());
+        let gui = Box::new(Gui::<::examples::geometries::Geometries>::new());
         SetWindowLongPtrW(wnd, GWLP_USERDATA, Box::into_raw(gui) as LONG_PTR);
         0
     } else {
         let event = Event { wnd, message, l_param, w_param };
-        let gui = &mut *(GetWindowLongPtrW(wnd, GWLP_USERDATA) as *mut Gui<Brushes>);
+        let gui = &mut *(GetWindowLongPtrW(wnd, GWLP_USERDATA) as *mut Gui<::examples::geometries::Geometries>);
         gui.handle(event)
     }
 }
